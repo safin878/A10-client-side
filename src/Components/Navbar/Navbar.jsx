@@ -1,6 +1,21 @@
 import { NavLink, Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/Authprovider";
+import { useContext } from "react";
+import auth from "../../firebase/firebase.init";
 
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
+  const hol = () => {
+    logout(auth)
+      .then(() => {
+        // Sign-out successful.
+        console.log("Sign-out successful");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  };
   const navlinks = (
     <>
       <NavLink className="btn btn-ghost hover:bg-color" to="/">
@@ -10,11 +25,11 @@ const Navbar = () => {
         <li> All Tourists Spot</li>
       </NavLink>
 
-      {/* {user && (
-      <NavLink className="btn btn-ghost hover:bg-color" to="/membership">
-        <li>MemberShip</li>
-      </NavLink>
-    )} */}
+      {user && (
+        <NavLink className="btn btn-ghost hover:bg-color" to="/membership">
+          <li>MemberShip</li>
+        </NavLink>
+      )}
     </>
   );
 
@@ -44,41 +59,6 @@ const Navbar = () => {
               className="menu mr-4 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navlinks}
-              {/* {user ? (
-                <div className="flex gap-2">
-                  <div
-                    className="tooltip tooltip-bottom"
-                    data-tip={user.displayName}
-                  >
-                    <img
-                      className="w-12 border rounded-full tooltip"
-                      data-tip="hello"
-                      alt="Tailwind "
-                      src={user.photoURL}
-                    />
-                  </div>
-
-                  <button
-                    onClick={hol}
-                    className="btn text-white bg-pcolor  hover:bg-red-400 "
-                  >
-                    logout
-                  </button>
-                </div>
-              ) : (
-                <div className="flex gap-2">
-                  <Link to="/login">
-                    <button className="btn bg-pcolor text-white hover:bg-scolor hover:text-black">
-                      Login
-                    </button>
-                  </Link>
-                  <Link to="/register">
-                    <button className="btn bg-pcolor text-white hover:bg-scolor hover:text-black">
-                      Register
-                    </button>
-                  </Link>
-                </div>
-              )} */}
             </ul>
           </div>
           <div className="flex items-center">
@@ -92,7 +72,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
         <div className="navbar-end hidden lg:inline-flex">
-          {/* {user ? (
+          {user ? (
             <div className="flex gap-2">
               <div
                 className="tooltip tooltip-bottom"
@@ -108,7 +88,7 @@ const Navbar = () => {
 
               <button
                 onClick={hol}
-                className="btn text-white bg-pcolor  hover:bg-red-400 "
+                className="btn text-white bg-red-300  hover:bg-red-600 "
               >
                 logout
               </button>
@@ -116,26 +96,17 @@ const Navbar = () => {
           ) : (
             <div className="flex gap-2">
               <Link to="/login">
-                <button className="btn bg-pcolor text-white hover:bg-scolor hover:text-black">
+                <button className="btn bg-blue-300 text-white hover:bg-blue-600 hover:text-black">
                   Login
                 </button>
               </Link>
               <Link to="/register">
-                <button className="btn bg-pcolor text-white hover:bg-scolor hover:text-black">
+                <button className="btn  text-white bg-green-400 hover:bg-green-600 hover:text-black">
                   Register
                 </button>
               </Link>
             </div>
-          )} */}
-        </div>
-        <div className="navbar-end gap-2">
-          <NavLink to="/login">
-            <button className="btn">Login</button>
-          </NavLink>
-
-          <NavLink to="/register">
-            <button className="btn">Register</button>
-          </NavLink>
+          )}
         </div>
       </div>
     </>

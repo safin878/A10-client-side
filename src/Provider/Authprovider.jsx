@@ -5,7 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import auth from "../Firebase/firebase.init";
+import auth from "../firebase/firebase.init";
 import { signInWithPopup } from "firebase/auth";
 export const AuthContext = createContext(null);
 
