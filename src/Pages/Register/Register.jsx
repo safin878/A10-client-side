@@ -1,7 +1,7 @@
 const Register = () => {
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen fixed bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Register now!</h1>
@@ -10,12 +10,36 @@ const Register = () => {
             <form className="card-body">
               <div className="form-control">
                 <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Write Your Name"
+                  className="input input-bordered"
+                  name="name"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
                   placeholder="email"
                   className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">PhotoUrl</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Photo URL"
+                  className="input input-bordered"
+                  name="photo"
                   required
                 />
               </div>
