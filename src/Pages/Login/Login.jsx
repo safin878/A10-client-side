@@ -1,8 +1,48 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/Authprovider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { FaGithub } from "react-icons/fa";
+import auth from "../../firebase/firebase.init";
+import { FcGoogle } from "react-icons/fc";
+import { GithubAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
+
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, Googlelog, Gitglelog } = useContext(AuthContext);
+
+  const providergit = new GithubAuthProvider();
+  const provider = new GoogleAuthProvider();
+
+  const hog = (e) => {
+    e.preventDefault();
+    Googlelog(auth, provider)
+      .then((result) => {
+        // Signed in
+
+        console.log("Login Successfully", result);
+
+        // ...
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const hogit = (e) => {
+    e.preventDefault();
+    Gitglelog(auth, providergit)
+      .then((result) => {
+        // Signed in
+
+        console.log("Login Successfully by GitHub", result);
+
+        // ...
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handelonlog = (e) => {
     e.preventDefault();
@@ -14,11 +54,23 @@ const Login = () => {
       .then((result) => {
         // Signed in
         console.log(result.user);
+        Swal.fire({
+          title: "success",
+          text: "Login successful",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
 
         // ...
       })
       .catch((error) => {
         console.log(error);
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       });
   };
   return (
@@ -63,6 +115,20 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>
+          </div>
+          <div className="flex gap-5">
+            <button onClick={hog} className="btn btn-outline">
+              <span>
+                <FcGoogle />
+              </span>
+              Google
+            </button>
+            <button onClick={hogit} className="btn btn-outline btn-primary">
+              <span>
+                <FaGithub />
+              </span>
+              Github
+            </button>
           </div>
           <p>
             {" "}
