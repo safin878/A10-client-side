@@ -1,11 +1,28 @@
 import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/Authprovider";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import auth from "../../firebase/firebase.init";
 import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+
+  const handletoggle = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
   const hol = () => {
     logout(auth)
       .then(() => {
@@ -31,10 +48,13 @@ const Navbar = () => {
       <NavLink className="btn btn-ghost hover:bg-color" to="/alltourists">
         <li> All Tourists Spot</li>
       </NavLink>
+      <NavLink className="btn btn-ghost hover:bg-color" to="/addtour">
+        <li>Add Tourists Spot</li>
+      </NavLink>
 
       {user && (
-        <NavLink className="btn btn-ghost hover:bg-color" to="/membership">
-          <li>MemberShip</li>
+        <NavLink className="btn btn-ghost hover:bg-color" to="/mylist">
+          <li> My List</li>
         </NavLink>
       )}
     </>
@@ -83,6 +103,7 @@ const Navbar = () => {
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
             <input
+              onChange={handletoggle}
               type="checkbox"
               className="theme-controller"
               value="synthwave"
@@ -112,20 +133,42 @@ const Navbar = () => {
                 className="tooltip tooltip-bottom"
                 data-tip={user.displayName}
               >
-                <img
+                {/* <img
                   className="w-12 border rounded-full tooltip"
                   data-tip="hello"
                   alt="Tailwind "
                   src={user.photoURL}
-                />
+                /> */}
               </div>
 
-              <button
-                onClick={hol}
-                className="btn text-white bg-red-300  hover:bg-red-600 "
-              >
-                logout
-              </button>
+              <div className="dropdown dropdown-hover dropdown-bottom dropdown-end tooltip tooltip-left">
+                <div tabIndex={0} role="button" className=" m-1">
+                  <img
+                    id="my-anchor-element"
+                    className="w-12 border rounded-full tooltip"
+                    data-tip="hello"
+                    alt="Tailwind "
+                    src={user.photoURL}
+                  />
+                  <Tooltip
+                    anchorSelect="#my-anchor-element"
+                    content={user.displayName}
+                  />
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <button
+                      onClick={hol}
+                      className="btn text-white bg-red-300  hover:bg-red-600 "
+                    >
+                      logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </div>
           ) : (
             <div className="flex gap-2">

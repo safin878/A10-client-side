@@ -7,12 +7,15 @@ import auth from "../../firebase/firebase.init";
 import { FcGoogle } from "react-icons/fc";
 import { GithubAuthProvider } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login, Googlelog, Gitglelog } = useContext(AuthContext);
 
   const providergit = new GithubAuthProvider();
   const provider = new GoogleAuthProvider();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const hog = (e) => {
     e.preventDefault();
@@ -22,10 +25,25 @@ const Login = () => {
 
         console.log("Login Successfully", result);
 
+        Swal.fire({
+          title: "success",
+          text: "Google Login successful",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+
+        navigate(location?.state ? location.state : "/");
+
         // ...
       })
       .catch((error) => {
         console.log(error);
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       });
   };
 
@@ -36,11 +54,25 @@ const Login = () => {
         // Signed in
 
         console.log("Login Successfully by GitHub", result);
+        Swal.fire({
+          title: "success",
+          text: "Github Login successful",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+
+        navigate(location?.state ? location.state : "/");
 
         // ...
       })
       .catch((error) => {
         console.log(error);
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       });
   };
 
@@ -60,6 +92,8 @@ const Login = () => {
           icon: "success",
           confirmButtonText: "Ok",
         });
+
+        navigate(location?.state ? location.state : "/");
 
         // ...
       })
