@@ -36,13 +36,16 @@ const Register = () => {
         navigate(location?.state ? location.state : "/");
 
         const userreg = { name, email, photo, password };
-        fetch("http://localhost:5000/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userreg),
-        })
+        fetch(
+          "https://server-side-67k6rwg3o-safins-projects-cd50fb79.vercel.app/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userreg),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
