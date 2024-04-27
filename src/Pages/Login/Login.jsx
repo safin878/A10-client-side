@@ -38,12 +38,6 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
-        Swal.fire({
-          title: "Error!",
-          text: "Something went wrong!",
-          icon: "error",
-          confirmButtonText: "OK",
-        });
       });
   };
 
@@ -67,12 +61,6 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
-        Swal.fire({
-          title: "Error!",
-          text: "Something went wrong!",
-          icon: "error",
-          confirmButtonText: "OK",
-        });
       });
   };
 
@@ -109,6 +97,7 @@ const Login = () => {
   };
   return (
     <div>
+      <div></div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">

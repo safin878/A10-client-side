@@ -129,18 +129,6 @@ const Navbar = () => {
           </label>
           {user ? (
             <div className="flex gap-2">
-              <div
-                className="tooltip tooltip-bottom"
-                data-tip={user.displayName}
-              >
-                {/* <img
-                  className="w-12 border rounded-full tooltip"
-                  data-tip="hello"
-                  alt="Tailwind "
-                  src={user.photoURL}
-                /> */}
-              </div>
-
               <div className="dropdown dropdown-hover dropdown-bottom dropdown-end tooltip tooltip-left">
                 <div tabIndex={0} role="button" className=" m-1">
                   <img

@@ -3,6 +3,8 @@ import { AuthContext } from "../../Provider/Authprovider";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const {
@@ -11,6 +13,10 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const { userCreate } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
 
   const handelonReg = (e) => {
     // e.preventDefault();
@@ -27,7 +33,37 @@ const Register = () => {
           icon: "success",
           confirmButtonText: "Ok",
         });
-        // ...
+        navigate(location?.state ? location.state : "/");
+
+        const userreg = { name, email, photo, password };
+        fetch("http://localhost:5000/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userreg),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+
+        //Update Profile
+
+        updateProfile(result.user, {
+          displayName: `${name}`,
+          photoURL: `${photo}`,
+        })
+          .then(() => {
+            // Profile updated!
+            console.log("Profile Updated Successfully");
+            // ...
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+            console.log(error);
+          });
       })
       .catch((error) => {
         console.log(error);
