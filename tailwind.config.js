@@ -2,9 +2,14 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      maxHeight: {
+        128: "32rem",
+      },
+    },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("flowbite/plugin")],
+
   daisyui: {
     themes: ["light", "dark", "cupcake"],
   },
