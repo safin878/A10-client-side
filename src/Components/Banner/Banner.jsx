@@ -43,7 +43,7 @@ const Banner = () => {
           prevEl: ".swiper-button-prev",
           clickable: true,
         }}
-        className="swiper_container border   max-h-[450px] "
+        className="swiper_container  max-h-[450px] "
       >
         <SwiperSlide>
           <img src={img1} alt="slide_image" />

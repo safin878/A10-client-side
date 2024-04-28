@@ -3,7 +3,6 @@ import { AuthContext } from "../../Provider/Authprovider";
 import { useContext, useEffect, useState } from "react";
 import auth from "../../firebase/firebase.init";
 import Swal from "sweetalert2";
-import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -129,23 +128,22 @@ const Navbar = () => {
           </label>
           {user ? (
             <div className="flex gap-2">
-              <div className="dropdown dropdown-hover dropdown-bottom dropdown-end tooltip tooltip-left">
+              <div
+                className="dropdown dropdown-hover dropdown-bottom dropdown-end tooltip tooltip-left"
+                data-tip={user.displayName}
+              >
                 <div tabIndex={0} role="button" className=" m-1">
                   <img
                     id="my-anchor-element"
-                    className="w-12 border rounded-full tooltip"
-                    data-tip="hello"
+                    className="w-12 border rounded-full  "
                     alt="Tailwind "
                     src={user.photoURL}
                   />
-                  <Tooltip
-                    anchorSelect="#my-anchor-element"
-                    content={user.displayName}
-                  />
                 </div>
+
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                  className="dropdown-content z-[2] menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
                     <button
