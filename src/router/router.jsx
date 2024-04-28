@@ -22,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/alltourists",
         element: <AllTouristsSpot></AllTouristsSpot>,
+        loader: () => fetch("https://server-side-alpha-one.vercel.app/addtour"),
       },
       {
         path: "/login",

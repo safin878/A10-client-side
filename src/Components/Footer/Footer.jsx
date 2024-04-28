@@ -3,7 +3,12 @@ const Footer = () => {
     <div>
       <footer className="footer p-10 bg-base-200 text-base-content">
         <aside>
-          <p>ExploreAsiaParadise</p>
+          <img
+            className="w-16 border rounded-full "
+            src="https://i.postimg.cc/pTP97GRj/image.png"
+            alt=""
+          />
+          <p className="font-bold">ExploreAsiaParadise</p>
         </aside>
         <nav>
           <h6 className="footer-title">Our Services</h6>

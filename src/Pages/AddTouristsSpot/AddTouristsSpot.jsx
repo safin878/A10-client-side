@@ -63,6 +63,7 @@ const AddTouristsSpot = () => {
             icon: "success",
             confirmButtonText: "Ok",
           });
+          form.reset();
         }
       });
   };

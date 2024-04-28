@@ -1,7 +1,7 @@
-import { FaLocationDot } from "react-icons/fa6";
+// import { FaLocationDot } from "react-icons/fa6";
 
 const TouristSpot = ({ loadspot }) => {
-  const { image, title, description, location } = loadspot;
+  const { image, description, location } = loadspot;
   console.log(loadspot);
   return (
     <div>
