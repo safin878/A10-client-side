@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import AddTouristsSpotAddTouristsSpot from "../Pages/AddTouristsSpot/AddTouristsSpot";
 import MyList from "../Pages/MyList/MyList";
 import PrivateRoute from "./PrivateRoute";
+import ViewDetails from "../Components/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/view/:id",
+        element: <ViewDetails></ViewDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://server-side-alpha-one.vercel.app/addtour/${params.id}`
+          ),
       },
       {
         path: "/addtour",

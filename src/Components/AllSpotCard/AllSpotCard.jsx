@@ -15,7 +15,7 @@ const AllSpotCard = ({ allTourist }) => {
   } = allTourist;
   return (
     <div>
-      <div className="card w-96 glass">
+      <div className="card w-96 glass hover:scale-105 transition">
         <figure>
           <img src={ImgUrl} alt="car!" />
         </figure>

@@ -20,7 +20,7 @@ const TouristSpot = ({ loadspot }) => {
         <button className="btn btn-primary ">View Details</button>
       </div> */}
 
-      <div className="card w-96 bg-base-100 shadow-xl ">
+      <div className="card w-96 bg-base-100 shadow-xl hover:scale-110 transition">
         <figure>
           <img src={image} alt="Shoes" />
         </figure>
