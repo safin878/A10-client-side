@@ -26,7 +26,7 @@ const TouristSpot = ({ loadspot }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{location}</h2>
-          <p>{description}</p>
+          <p className="text-[10px]">{description}</p>
         </div>
       </div>
     </div>

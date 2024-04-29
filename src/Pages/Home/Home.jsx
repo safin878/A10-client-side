@@ -3,6 +3,8 @@ import Banner from "../../Components/Banner/Banner";
 import TouristSpot from "../../Components/TouristSpot/TouristSpot";
 import { useEffect, useState } from "react";
 import Country from "../../Components/Countries/Country";
+import Choose from "../../Components/Choose/Choose";
+import Testimonial from "../../Components/Testimonial/Testimonial";
 
 const Home = () => {
   const lodedata = useLoaderData();
@@ -15,7 +17,7 @@ const Home = () => {
       .then((data) => setcdata(data));
   }, []);
   return (
-    <div className="conatiner mx-auto ">
+    <div className="conatiner mx-auto p-6">
       <Banner></Banner>
 
       <div className="container mx-auto flex flex-col justify-center items-center my-3">
@@ -35,6 +37,11 @@ const Home = () => {
             <TouristSpot key={loadspot._id} loadspot={loadspot}></TouristSpot>
           ))}
         </div>
+        <h1 className="text-6xl font-bold my-4">Choose Tour & Travel Types</h1>
+        <Choose></Choose>
+
+        <h1 className="text-6xl font-bold my-4">Traveler Testimonials</h1>
+        <Testimonial></Testimonial>
       </div>
     </div>
   );

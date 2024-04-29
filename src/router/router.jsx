@@ -8,11 +8,14 @@ import AddTouristsSpotAddTouristsSpot from "../Pages/AddTouristsSpot/AddTourists
 import MyList from "../Pages/MyList/MyList";
 import PrivateRoute from "./PrivateRoute";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
+import Updated from "../Components/Updated/Updated";
+import Errorp from "../Components/Errorp/Errorp";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Errorp></Errorp>,
     children: [
       {
         path: "/",
@@ -34,8 +37,24 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
+        path: "/updated/:id",
+        element: (
+          <PrivateRoute>
+            <Updated></Updated>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://server-side-alpha-one.vercel.app/mylistbyid/${params.id}`
+          ),
+      },
+      {
         path: "/view/:id",
-        element: <ViewDetails></ViewDetails>,
+        element: (
+          <PrivateRoute>
+            <ViewDetails></ViewDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://server-side-alpha-one.vercel.app/addtour/${params.id}`

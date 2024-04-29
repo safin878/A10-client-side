@@ -1,11 +1,12 @@
 import { IoTime } from "react-icons/io5";
 import { BsPeopleFill } from "react-icons/bs";
 import { HiCurrencyDollar } from "react-icons/hi";
-
+import { Link } from "react-router-dom";
 import { TiWeatherCloudy } from "react-icons/ti";
 
 const AllSpotCard = ({ allTourist }) => {
   const {
+    _id,
     ImgUrl,
     SpotName,
     TravelTime,
@@ -44,9 +45,11 @@ const AllSpotCard = ({ allTourist }) => {
               <p>{AvarageCost}</p>
             </div>
           </div>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">View Details</button>
-          </div>
+          <Link to={`/view/${_id}`}>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">View Details</button>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
