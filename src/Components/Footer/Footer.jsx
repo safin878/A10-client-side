@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-base-200 text-base-content">
+      <footer className="footer sm:flex sm:justify-between p-10 bg-base-200 text-base-content">
         <aside>
           <img
             className="w-16 border rounded-full "

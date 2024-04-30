@@ -7,7 +7,7 @@ const Choose = () => {
   return (
     <div>
       <div>
-        <div className="  flex gap-4">
+        <div className="grid grid-cols-2  md:flex gap-4">
           <div className="card-body items-center text-center w-96 bg-white shadow-xl hover:scale-110 transition border rounded-lg">
             <FaTripadvisor className="text-5xl" />
             <h2 className="card-title">Adventures</h2>

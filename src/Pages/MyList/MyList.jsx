@@ -4,15 +4,16 @@ import MyListCard from "../../Components/MyListCard/MyListCard";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
-  const [lists, setlists] = useState([]);
+  const [deleteui, setdeleteui] = useState([]);
   useEffect(() => {
     fetch(`https://server-side-alpha-one.vercel.app/mylist/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setlists(data));
+      .then((data) => {
+        setdeleteui(data);
+      });
   }, [user]);
 
-  const [deleteui, setdeleteui] = useState(lists);
-  console.log(deleteui);
+  // console.log(deleteui);
 
   return (
     <div className=" p-4">
@@ -20,8 +21,8 @@ const MyList = () => {
         My Added Tourist Spot
       </h1>
 
-      <div className="grid grid-cols-2 gap-4">
-        {lists.map((list) => (
+      <div className="grid md:grid-cols-2 gap-4">
+        {deleteui.map((list) => (
           <MyListCard
             key={list._id}
             list={list}

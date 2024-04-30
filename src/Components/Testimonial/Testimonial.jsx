@@ -6,10 +6,10 @@ const Testimonial = () => {
           <div className=" w-96 bg-base-200 overflow-hidden">
             <div className="card-body items-center text-center">
               <p className="text-[12px]">
-                Adipiscing Elit Duis Tristique Sollicitudin. Nulla Aliquet
-                Porttitor Lacus Luctus. Enim Facilisis Gravida Neque Convallis A
-                Cras Semper Auctor. Vulputate Sapien Nec Sagittis Aliquam
-                Malesuada Bibendum Arcu Vitae.
+                From the moment I engaged with ExploreAsiaParadise I was
+                impressed by their professionalism and dedication. Their team
+                not only met but exceeded my expectations at every turn. The
+                quality of their work
               </p>
             </div>
           </div>
@@ -38,10 +38,10 @@ const Testimonial = () => {
           <div className=" w-96 bg-base-200 overflow-hidden">
             <div className="card-body items-center text-center">
               <p className="text-[12px]">
-                Adipiscing Elit Duis Tristique Sollicitudin. Nulla Aliquet
-                Porttitor Lacus Luctus. Enim Facilisis Gravida Neque Convallis A
-                Cras Semper Auctor. Vulputate Sapien Nec Sagittis Aliquam
-                Malesuada Bibendum Arcu Vitae.
+                Embarking on this journey has been nothing short of
+                transformative. From the initial consultation to the final
+                product, every step of the way exuded professionalism,
+                expertise, and a genuine
               </p>
             </div>
           </div>
@@ -70,10 +70,10 @@ const Testimonial = () => {
           <div className=" w-96 bg-base-200 overflow-hidden">
             <div className="card-body items-center text-center">
               <p className="text-[12px]">
-                Adipiscing Elit Duis Tristique Sollicitudin. Nulla Aliquet
-                Porttitor Lacus Luctus. Enim Facilisis Gravida Neque Convallis A
-                Cras Semper Auctor. Vulputate Sapien Nec Sagittis Aliquam
-                Malesuada Bibendum Arcu Vitae.
+                I am mersive, transformative, and simply indispensable. Engaging
+                with servicefelt like stepping into a realm where my aspirations
+                and possibilities converged. Its seamless integration of
+                innovation
               </p>
             </div>
           </div>

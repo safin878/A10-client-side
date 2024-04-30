@@ -98,7 +98,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
 
-        <div className="navbar-end hidden lg:inline-flex gap-2">
+        <div className="navbar-end  lg:inline-flex gap-2">
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
             <input
