@@ -3,20 +3,18 @@ import { BsPeopleFill } from "react-icons/bs";
 import { HiCurrencyDollar } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { TiWeatherCloudy } from "react-icons/ti";
-const Country = ({ dat }) => {
+const CountrySpot = ({ load }) => {
   const {
-    _id,
     ImgUrl,
     SpotName,
     TravelTime,
     TotaVisitorsPerYear,
     Seasonality,
     AvarageCost,
-  } = dat;
-
+  } = load;
   return (
-    <div className="w-96 hover:scale-110 transition">
-      <div className="card w-96 glass">
+    <div>
+      <div className="card w-96 glass hover:scale-105 transition">
         <figure>
           <img src={ImgUrl} alt="car!" />
         </figure>
@@ -45,7 +43,7 @@ const Country = ({ dat }) => {
               <p>{AvarageCost}</p>
             </div>
           </div>
-          <Link to={`/view/${_id}`}>
+          <Link>
             <div className="card-actions justify-end">
               <button className="btn btn-primary">View Details</button>
             </div>
@@ -56,4 +54,4 @@ const Country = ({ dat }) => {
   );
 };
 
-export default Country;
+export default CountrySpot;

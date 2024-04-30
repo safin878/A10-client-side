@@ -62,8 +62,8 @@ const Updated = () => {
   };
 
   return (
-    <div className="container mx-auto">
-      <div className="hero-content flex-col ">
+    <div>
+      <div className="hero-content container mx-auto flex-col ">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Update Tourist Spot</h1>
         </div>

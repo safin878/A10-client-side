@@ -9,7 +9,6 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 const Home = () => {
   const lodedata = useLoaderData();
   const [cdata, setcdata] = useState([]);
-  console.log(lodedata);
 
   useEffect(() => {
     fetch("https://server-side-alpha-one.vercel.app/addtour")
@@ -49,7 +48,7 @@ const Home = () => {
           ))}
         </div>
         <h1 className="text-6xl font-bold my-4">Choose Tour & Travel Types</h1>
-        <Choose></Choose>
+        <Choose className="m-16"></Choose>
 
         <h1 className="text-6xl font-bold my-4">Traveler Testimonials</h1>
         <Testimonial></Testimonial>

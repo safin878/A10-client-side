@@ -69,7 +69,7 @@ const AddTouristsSpot = () => {
   };
   return (
     <div>
-      <div className="hero min-h-screen ">
+      <div className="hero  ">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Add Tourist Spot</h1>

@@ -7,7 +7,7 @@ const Root = () => {
       <Navbar></Navbar>
       <div className="md:h-[50px] h-16"></div>
 
-      <div className="container mx-auto  ">
+      <div className="min-h-[calc(100vh-187px)]  container mx-auto">
         <Outlet></Outlet>
       </div>
       <Footer></Footer>

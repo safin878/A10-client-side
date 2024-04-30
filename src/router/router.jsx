@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
 import Updated from "../Components/Updated/Updated";
 import Errorp from "../Components/Errorp/Errorp";
+import CountryCard from "../Components/CountryCard/CountryCard";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,15 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path: "/country/:Country",
+        element: <CountryCard></CountryCard>,
+        loader: ({ params }) =>
+          fetch(
+            `https://server-side-alpha-one.vercel.app/country/${params.Country}`
+          ),
+      },
+
       {
         path: "/updated/:id",
         element: (
