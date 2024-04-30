@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Country from "../../Components/Countries/Country";
 import Choose from "../../Components/Choose/Choose";
 import Testimonial from "../../Components/Testimonial/Testimonial";
-
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 const Home = () => {
   const lodedata = useLoaderData();
   const [cdata, setcdata] = useState([]);
@@ -16,12 +16,23 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setcdata(data));
   }, []);
+
+  const [typeEffect] = useTypewriter({
+    words: ["Explore", "Fun", "Enjoy"],
+    loop: {},
+  });
   return (
     <div className="conatiner mx-auto p-6">
       <Banner></Banner>
 
       <div className="container mx-auto flex flex-col justify-center items-center my-3">
-        <h1 className="text-6xl font-bold">Tourists Spots</h1>
+        <h1 className="text-6xl font-bold">
+          Tourists Spots {""}
+          <span style={{ fontWeight: "bold", color: "blue" }}>
+            {typeEffect}
+          </span>
+          <Cursor />
+        </h1>
         <br />
 
         <div className="container w-[800px] grid grid-cols-2 md:grid-cols-3 gap-6 p-6">
