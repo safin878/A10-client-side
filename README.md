@@ -1,6 +1,6 @@
 
 
-Live Link: https://exploreasiaparadise.web.app/
+Live Link: https://exploreasiaparadise.web.app
 
 Key Features:
 
